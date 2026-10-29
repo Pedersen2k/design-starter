@@ -14,8 +14,18 @@
     "pdf"
   ],
   "createdAt": "2026-10-29T09:26:19.462Z",
-  "updatedAt": "2026-10-29T09:26:19.462Z",
+  "updatedAt": "2026-10-29T09:28:22.362Z",
   "sourceSkillId": "od:prototype:web-prototype",
   "explorationId": "norsk-landingsside-for-en-75-r-gammel-mor-hva-so",
-  "directionId": "n-og-neste"
+  "directionId": "n-og-neste",
+  "metadata": {
+    "exports": [
+      {
+        "path": ".open-design/norsk-landingsside-for-en-75-r-gammel-mor-hva-so/exports/n-og-neste.html",
+        "format": "standalone",
+        "bytes": 2862,
+        "exportedAt": "2026-10-29T09:28:22.362Z"
+      }
+    ]
+  }
 }

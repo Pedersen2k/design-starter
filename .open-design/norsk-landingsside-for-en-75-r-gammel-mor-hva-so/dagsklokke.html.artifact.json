@@ -14,8 +14,18 @@
     "pdf"
   ],
   "createdAt": "2026-10-29T09:26:19.499Z",
-  "updatedAt": "2026-10-29T09:26:19.499Z",
+  "updatedAt": "2026-10-29T09:28:22.421Z",
   "sourceSkillId": "od:prototype:web-prototype",
   "explorationId": "norsk-landingsside-for-en-75-r-gammel-mor-hva-so",
-  "directionId": "dagsklokke"
+  "directionId": "dagsklokke",
+  "metadata": {
+    "exports": [
+      {
+        "path": ".open-design/norsk-landingsside-for-en-75-r-gammel-mor-hva-so/exports/dagsklokke.html",
+        "format": "standalone",
+        "bytes": 3215,
+        "exportedAt": "2026-10-29T09:28:22.421Z"
+      }
+    ]
+  }
 }

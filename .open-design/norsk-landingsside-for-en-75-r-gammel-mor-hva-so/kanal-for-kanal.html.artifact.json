@@ -14,8 +14,18 @@
     "pdf"
   ],
   "createdAt": "2026-10-29T09:26:19.483Z",
-  "updatedAt": "2026-10-29T09:26:19.483Z",
+  "updatedAt": "2026-10-29T09:28:22.396Z",
   "sourceSkillId": "od:prototype:web-prototype",
   "explorationId": "norsk-landingsside-for-en-75-r-gammel-mor-hva-so",
-  "directionId": "kanal-for-kanal"
+  "directionId": "kanal-for-kanal",
+  "metadata": {
+    "exports": [
+      {
+        "path": ".open-design/norsk-landingsside-for-en-75-r-gammel-mor-hva-so/exports/kanal-for-kanal.html",
+        "format": "standalone",
+        "bytes": 3741,
+        "exportedAt": "2026-10-29T09:28:22.396Z"
+      }
+    ]
+  }
 }
