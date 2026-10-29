@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TV Kveldsliste Mobil</title>
+<style>
+  :root{--bg:#10141f;--panel:#1b2233;--ink:#fff;--gul:#ffd23f;--line:#34405c;--on-gul:#10141f}
+  @media (prefers-color-scheme: light){:root:not([data-theme="dark"]){--bg:#fff8dc;--panel:#fff;--ink:#10141f;--gul:#10141f;--line:#d6c98f;--on-gul:#fff}}
+  :root[data-theme="light"]{--bg:#fff8dc;--panel:#fff;--ink:#10141f;--gul:#10141f;--line:#d6c98f;--on-gul:#fff}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:22px/1.4 Verdana,Geneva,sans-serif;padding:0 16px 130px}
+  .wrap{max-width:480px;margin:0 auto}
+  .dag{display:grid;grid-template-columns:72px 1fr 72px;align-items:center;gap:8px;padding:16px 0;position:sticky;top:0;background:var(--bg);z-index:2}
+  .dag button{all:unset;box-sizing:border-box;height:64px;text-align:center;font-size:38px;font-weight:700;border:3px solid var(--gul);border-radius:16px;color:var(--gul);cursor:pointer}
+  .dag button:focus-visible{outline:4px solid var(--ink)}
+  .dag div{text-align:center;font-size:26px;font-weight:700;color:var(--gul)}
+  .dag small{display:block;font-size:20px;font-weight:400;color:var(--ink)}
+  h2{margin:24px 0 8px;font-size:28px;color:var(--gul);display:flex;gap:10px;align-items:center}
+  .rad{background:var(--panel);border-radius:16px;padding:14px 16px;margin-bottom:10px;border:3px solid transparent}
+  .rad.naa{border-color:var(--gul)}
+  .tid{font-size:38px;font-weight:700;color:var(--gul);line-height:1.1}
+  .tit{font-size:24px;font-weight:700;margin:2px 0 6px}
+  .pill{display:inline-block;background:var(--ink);color:var(--bg);font-weight:700;font-size:20px;padding:2px 14px;border-radius:999px}
+  .merke{float:right;background:var(--gul);color:var(--on-gul);font-weight:700;font-size:20px;padding:2px 12px;border-radius:999px}
+  .naaknapp{position:fixed;left:16px;right:16px;bottom:16px;max-width:448px;margin:0 auto;height:76px;background:var(--gul);color:var(--on-gul);border:0;border-radius:20px;font:700 28px Verdana,sans-serif;cursor:pointer;box-shadow:0 4px 0 rgba(0,0,0,.3)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="dag" data-od-id="dagvelger">
+    <button aria-label="Forrige dag">‹</button>
+    <div>I dag<small>Torsdag 29. oktober</small></div>
+    <button aria-label="Neste dag">›</button>
+  </div>
+
+  <section data-od-id="ettermiddag">
+    <h2>☕ Ettermiddag</h2>
+    <div class="rad"><div class="tid">14.00</div><div class="tit">Allsang på grensen</div><span class="pill">NRK1</span></div>
+    <div class="rad"><div class="tid">16.30</div><div class="tit">Hagen vår</div><span class="pill">TV 2</span></div>
+  </section>
+  <section data-od-id="kveld">
+    <h2>🌙 Kveld</h2>
+    <div class="rad naa" id="naa"><span class="merke">Nå</span><div class="tid">19.00</div><div class="tit">Norge Rundt</div><span class="pill">NRK1</span></div>
+    <div class="rad"><div class="tid">20.00</div><div class="tit">Kriminalserien</div><span class="pill">TV 2</span></div>
+    <div class="rad"><div class="tid">21.00</div><div class="tit">Dagsrevyen 21</div><span class="pill">NRK1</span></div>
+    <div class="rad"><div class="tid">21.45</div><div class="tit">Dokumentar: Fjorden</div><span class="pill">NRK2</span></div>
+  </section>
+</div>
+<button class="naaknapp" data-od-id="hva-skjer-naa" onclick="document.getElementById('naa').scrollIntoView({behavior:'smooth',block:'center'})">Hva skjer nå?</button>
+</body>
+</html>

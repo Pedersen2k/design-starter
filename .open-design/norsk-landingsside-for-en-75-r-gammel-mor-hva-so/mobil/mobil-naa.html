@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TV Nå Mobil</title>
+<style>
+  :root{--bg:#fbf6ea;--ink:#1d1a16;--muted:#5b534a;--accent:#9c2f1f;--card:#fff;--line:#d9cfba}
+  @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#17140f;--ink:#fbf6ea;--muted:#c9bfa9;--accent:#ff8a73;--card:#241f17;--line:#4a4132}}
+  :root[data-theme="dark"]{--bg:#17140f;--ink:#fbf6ea;--muted:#c9bfa9;--accent:#ff8a73;--card:#241f17;--line:#4a4132}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:22px/1.45 "Helvetica Neue",Arial,sans-serif;padding:0 16px 120px}
+  .wrap{max-width:480px;margin:0 auto}
+  .date{margin:20px 0 0;font-size:22px;color:var(--muted)}
+  h1{font:700 40px/1.1 Georgia,serif;margin:4px 0 20px}
+  .now{background:var(--card);border:4px solid var(--ink);border-radius:22px;padding:22px}
+  .tag{display:inline-block;background:var(--accent);color:#fff;font-weight:700;padding:4px 14px;border-radius:999px;font-size:20px}
+  @media (prefers-color-scheme: dark){.tag{color:#17140f}}
+  .ch{font-size:24px;font-weight:700;margin:16px 0 0}
+  .title{font:700 44px/1.05 Georgia,serif;margin:4px 0 8px}
+  .time{font-size:24px;color:var(--muted);margin:0}
+  h2{font:700 30px/1.2 Georgia,serif;margin:32px 0 8px}
+  ul{list-style:none;margin:0;padding:0}
+  li{padding:16px 0;border-top:2px solid var(--line)}
+  li:last-child{border-bottom:2px solid var(--line)}
+  .t{font:700 32px Georgia,serif;display:block}
+  .n{font-weight:700;font-size:24px}
+  .c{color:var(--muted)}
+  nav{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:4px solid var(--ink);display:grid;grid-template-columns:repeat(3,1fr);padding-bottom:env(safe-area-inset-bottom)}
+  nav a{display:flex;flex-direction:column;align-items:center;gap:2px;padding:12px 4px;min-height:84px;text-decoration:none;color:var(--ink);font-weight:700;font-size:20px}
+  nav a span{font-size:30px}
+  nav a.on{background:var(--ink);color:var(--bg)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="date">Torsdag 29. oktober</p>
+  <h1>Hva går på TV?</h1>
+  <section class="now" data-od-id="naa">
+    <span class="tag">Går nå</span>
+    <p class="ch">NRK1 · kanal 1</p>
+    <p class="title">Norge Rundt</p>
+    <p class="time">Kl. 19.00 – 19.30</p>
+  </section>
+  <section data-od-id="senere">
+    <h2>Senere i kveld</h2>
+    <ul>
+      <li><span class="t">19.30</span><span class="n">Ukjent land</span> <span class="c">· NRK1</span></li>
+      <li><span class="t">20.00</span><span class="n">Kriminalserien</span> <span class="c">· TV 2</span></li>
+      <li><span class="t">21.00</span><span class="n">Dagsrevyen 21</span> <span class="c">· NRK1</span></li>
+      <li><span class="t">21.45</span><span class="n">Dokumentar: Fjorden</span> <span class="c">· NRK2</span></li>
+    </ul>
+  </section>
+</div>
+<nav data-od-id="bunnmeny">
+  <a class="on" href="#"><span>📺</span>Nå</a>
+  <a href="#"><span>📅</span>I dag</a>
+  <a href="#"><span>🎛️</span>Fjernkontroll</a>
+</nav>
+</body>
+</html>

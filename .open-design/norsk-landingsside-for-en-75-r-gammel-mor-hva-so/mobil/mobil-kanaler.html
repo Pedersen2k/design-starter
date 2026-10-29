@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TV Kanalknapper Mobil</title>
+<style>
+  :root{--bg:#fff;--ink:#000;--muted:#444;--line:#000}
+  @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#000;--ink:#fff;--muted:#ccc;--line:#fff}}
+  :root[data-theme="dark"]{--bg:#000;--ink:#fff;--muted:#ccc;--line:#fff}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:22px/1.4 Arial,Helvetica,sans-serif;padding:0 16px 40px}
+  .wrap{max-width:480px;margin:0 auto}
+  header{padding:20px 0 12px}
+  header b{font-size:34px;display:block}
+  header span{font-size:22px;color:var(--muted)}
+  p.hint{font-size:22px;margin:0 0 16px}
+  .kanal{margin-bottom:14px;border:5px solid var(--c);border-radius:18px;overflow:hidden}
+  .kanal button{all:unset;box-sizing:border-box;width:100%;display:flex;justify-content:space-between;align-items:center;gap:8px;padding:18px;background:var(--c);color:#fff;font-weight:700;font-size:32px;cursor:pointer;min-height:84px}
+  .kanal button small{font-size:22px;background:#fff;color:var(--c);padding:2px 12px;border-radius:999px}
+  .kanal button:focus-visible{outline:5px solid var(--ink);outline-offset:3px}
+  .nu{padding:14px 18px 6px;background:var(--bg)}
+  .nu b{display:block;font-size:26px}
+  .nu span{color:var(--muted)}
+  .liste{display:none;padding:0 18px 14px;background:var(--bg)}
+  .kanal.open .liste{display:block}
+  .liste div{padding:12px 0;border-top:2px solid var(--line);font-size:24px}
+  .liste strong{display:inline-block;width:86px;font-size:26px}
+  .nrk{--c:#0a4aa6}.tv2{--c:#c8102e}.tvn{--c:#6b2a8f}
+  @media (prefers-color-scheme: dark){.nrk{--c:#3b82f6}.tv2{--c:#e0344e}.tvn{--c:#a066d6}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header><b>Mammas TV</b><span>Torsdag 29. oktober</span></header>
+  <p class="hint">Trykk på en kanal for å se hele dagen.</p>
+
+  <section class="kanal nrk" data-od-id="nrk1">
+    <button aria-expanded="false">NRK1 <small>kanal 1</small></button>
+    <div class="nu"><span>Nå</span><b>Norge Rundt</b><span>19.00 – 19.30</span></div>
+    <div class="liste"><div><strong>19.30</strong>Ukjent land</div><div><strong>21.00</strong>Dagsrevyen 21</div><div><strong>22.00</strong>Kveldsnytt</div></div>
+  </section>
+  <section class="kanal nrk" data-od-id="nrk2">
+    <button aria-expanded="false">NRK2 <small>kanal 2</small></button>
+    <div class="nu"><span>Nå</span><b>Distriktsnyheter</b><span>19.00 – 19.30</span></div>
+    <div class="liste"><div><strong>19.30</strong>Verdens beste byer</div><div><strong>21.45</strong>Dokumentar: Fjorden</div></div>
+  </section>
+  <section class="kanal tv2" data-od-id="tv2">
+    <button aria-expanded="false">TV 2 <small>kanal 3</small></button>
+    <div class="nu"><span>Nå</span><b>Kjøkkenkampen</b><span>19.00 – 20.00</span></div>
+    <div class="liste"><div><strong>20.00</strong>Kriminalserien</div><div><strong>21.30</strong>Nyhetene</div></div>
+  </section>
+  <section class="kanal tvn" data-od-id="tvnorge">
+    <button aria-expanded="false">TVNorge <small>kanal 4</small></button>
+    <div class="nu"><span>Nå</span><b>Bondefangeren</b><span>19.00 – 19.55</span></div>
+    <div class="liste"><div><strong>20.00</strong>Norsk film: Sommeren</div><div><strong>22.00</strong>Sofa-kveld</div></div>
+  </section>
+</div>
+<script>
+  document.querySelectorAll('.kanal button').forEach(function(b){
+    b.addEventListener('click',function(){
+      var k=b.parentElement,o=k.classList.toggle('open');
+      b.setAttribute('aria-expanded',o);
+    });
+  });
+</script>
+</body>
+</html>
