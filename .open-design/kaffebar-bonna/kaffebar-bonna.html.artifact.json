@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "kind": "html",
+  "title": "Bønna – kaffebar",
+  "entry": ".open-design/kaffebar-bonna/kaffebar-bonna.html",
+  "renderer": "html",
+  "status": "complete",
+  "exports": [
+    "html",
+    "standalone",
+    "site",
+    "png",
+    "jpeg",
+    "pdf"
+  ],
+  "createdAt": "2026-10-29T09:42:54.455Z",
+  "updatedAt": "2026-10-29T09:42:54.455Z",
+  "sourceSkillId": "od:prototype:web-prototype",
+  "designSystemId": "cafe"
+}
