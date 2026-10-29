@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "kind": "html",
+  "title": "Kanal for kanal",
+  "entry": ".open-design/norsk-landingsside-for-en-75-r-gammel-mor-hva-so/kanal-for-kanal.html",
+  "renderer": "html",
+  "status": "complete",
+  "exports": [
+    "html",
+    "standalone",
+    "site",
+    "png",
+    "jpeg",
+    "pdf"
+  ],
+  "createdAt": "2026-10-29T09:26:19.483Z",
+  "updatedAt": "2026-10-29T09:26:19.483Z",
+  "sourceSkillId": "od:prototype:web-prototype",
+  "explorationId": "norsk-landingsside-for-en-75-r-gammel-mor-hva-so",
+  "directionId": "kanal-for-kanal"
+}

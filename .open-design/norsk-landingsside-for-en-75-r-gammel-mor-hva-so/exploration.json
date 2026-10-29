@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "explorationId": "norsk-landingsside-for-en-75-r-gammel-mor-hva-so",
+  "title": "Norsk landingsside for en 75 år gammel mor: hva som går på…",
+  "brief": "Norsk landingsside for en 75 år gammel mor: hva som går på TV i dag (NRK1, NRK2, TV 2, TVNorge, osv.). Veldig stor, tydelig tekst (min. 22px brødtekst), høy kontrast, store trykkflater, enkel navigasjon, ingen støy. Skal senere kunne utvides med seksjon 'Slik bruker du fjernkontrollen'. All tekst på norsk bokmål. Bruk realistiske eksempeldata for dagens program (klokkeslett, kanal, tittel).",
+  "skillId": "web-prototype",
+  "skillMode": "prototype",
+  "axis": "custom",
+  "createdAt": "2026-10-29T09:25:36.391Z",
+  "directions": [
+    {
+      "id": "n-og-neste",
+      "label": "Nå og neste",
+      "axis": "custom",
+      "summary": "Én-kolonne, 'Det går på TV akkurat nå' som enorm hero-kort med kanal, tittel og klokkeslett, og under det 'Senere i kveld' som en kort li…",
+      "spec": "### Nå og neste  `(id: n-og-neste)`\n\nÉn-kolonne, 'Det går på TV akkurat nå' som enorm hero-kort med kanal, tittel og klokkeslett, og under det 'Senere i kveld' som en kort liste. Varm kremhvit bakgrunn, mørk tekst, ett rolig aksentfarge, serif-overskrifter. Nederst en stor knapp 'Slik bruker du fjernkontrollen'. Ekstremt lite innhold på skjermen, null forvirring.\n",
+      "entryPath": ".open-design/norsk-landingsside-for-en-75-r-gammel-mor-hva-so/n-og-neste.html"
+    },
+    {
+      "id": "kanal-for-kanal",
+      "label": "Kanal for kanal",
+      "axis": "custom",
+      "summary": "Kanalene som store fargede kort/rader i et rutenett (NRK1, NRK2, TV 2, TVNorge, osv.), hver med kanalnavn stort og hva som går nå + neste…",
+      "spec": "### Kanal for kanal  `(id: kanal-for-kanal)`\n\nKanalene som store fargede kort/rader i et rutenett (NRK1, NRK2, TV 2, TVNorge, osv.), hver med kanalnavn stort og hva som går nå + neste, tydelig kanalfarge og kanalnummer slik det står på fjernkontrollen. Hvit bakgrunn, svart tekst, tykke rammer, sans-serif. Fast topplinje med dagens dato og enkle faner: I dag / I morgen / Fjernkontroll.\n",
+      "entryPath": ".open-design/norsk-landingsside-for-en-75-r-gammel-mor-hva-so/kanal-for-kanal.html"
+    },
+    {
+      "id": "dagsklokke",
+      "label": "Dagsklokke",
+      "axis": "custom",
+      "summary": "Tidslinje delt i Formiddag, Ettermiddag, Kveld som store horisontale bånd med tydelige ikoner (sol, kaffekopp, måne). Under hvert bånd 3–…",
+      "spec": "### Dagsklokke  `(id: dagsklokke)`\n\nTidslinje delt i Formiddag, Ettermiddag, Kveld som store horisontale bånd med tydelige ikoner (sol, kaffekopp, måne). Under hvert bånd 3–4 programmer med klokkeslett i svært stor skrift og kanal som pille. Mørkt tema med gul/hvit tekst (høy kontrast, behagelig om kvelden i sofaen), stor 'Hva skjer nå?'-knapp og en synlig fjernkontroll-fane.\n",
+      "entryPath": ".open-design/norsk-landingsside-for-en-75-r-gammel-mor-hva-so/dagsklokke.html"
+    }
+  ]
+}

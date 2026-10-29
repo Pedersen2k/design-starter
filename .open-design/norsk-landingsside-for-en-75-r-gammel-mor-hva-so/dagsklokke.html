@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mammas TV-side – Dagsklokke</title>
+<style>
+  :root{--bg:#10141f;--panel:#1b2233;--ink:#fff;--gul:#ffd23f;--line:#34405c}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:24px/1.4 Verdana,Geneva,sans-serif}
+  main{max-width:900px;margin:0 auto;padding:24px}
+  .tabs{display:flex;gap:12px;margin-bottom:24px}
+  .tabs a{flex:1;text-align:center;padding:16px;border-radius:14px;border:3px solid var(--gul);color:var(--gul);text-decoration:none;font-weight:700;font-size:26px}
+  .tabs a.on{background:var(--gul);color:#10141f}
+  h1{font-size:44px;margin:0 0 6px;color:var(--gul)}
+  .sub{margin:0 0 24px;font-size:26px}
+  .nu{display:block;width:100%;background:var(--gul);color:#10141f;border:0;border-radius:18px;font:700 36px Verdana,sans-serif;padding:28px;margin-bottom:36px;cursor:pointer}
+  .band{background:var(--panel);border-radius:20px;margin-bottom:24px;overflow:hidden}
+  .band h2{margin:0;padding:18px 24px;font-size:36px;display:flex;gap:16px;align-items:center;border-bottom:3px solid var(--line)}
+  .ic{font-size:44px}
+  .row{display:grid;grid-template-columns:150px 1fr auto;gap:16px;align-items:center;padding:18px 24px;border-top:2px solid var(--line)}
+  .row:first-of-type{border-top:0}
+  .tid{font-size:46px;font-weight:700;color:var(--gul)}
+  .tit{font-size:30px;font-weight:700}
+  .pill{background:#fff;color:#10141f;font-weight:700;font-size:24px;padding:6px 18px;border-radius:999px;white-space:nowrap}
+  @media(max-width:640px){.row{grid-template-columns:1fr;gap:6px}}
+</style>
+</head>
+<body>
+<main>
+  <nav class="tabs" data-od-id="faner"><a class="on" href="#">I dag</a><a href="#">I morgen</a><a href="#">Fjernkontroll</a></nav>
+  <h1>Torsdag 29. oktober</h1>
+  <p class="sub">Dette går på TV i dag</p>
+  <button class="nu" data-od-id="naa">Hva skjer nå?</button>
+
+  <section class="band" data-od-id="formiddag">
+    <h2><span class="ic">☀️</span>Formiddag</h2>
+    <div class="row"><span class="tid">10.00</span><span class="tit">Fra gutt til mann</span><span class="pill">NRK1</span></div>
+    <div class="row"><span class="tid">11.30</span><span class="tit">Mat på reise</span><span class="pill">NRK2</span></div>
+  </section>
+  <section class="band" data-od-id="ettermiddag">
+    <h2><span class="ic">☕</span>Ettermiddag</h2>
+    <div class="row"><span class="tid">14.00</span><span class="tit">Allsang på grensen</span><span class="pill">NRK1</span></div>
+    <div class="row"><span class="tid">16.30</span><span class="tit">Hagen vår</span><span class="pill">TV 2</span></div>
+  </section>
+  <section class="band" data-od-id="kveld">
+    <h2><span class="ic">🌙</span>Kveld</h2>
+    <div class="row"><span class="tid">19.00</span><span class="tit">Norge Rundt</span><span class="pill">NRK1</span></div>
+    <div class="row"><span class="tid">20.00</span><span class="tit">Kriminalserien</span><span class="pill">TV 2</span></div>
+    <div class="row"><span class="tid">21.00</span><span class="tit">Dagsrevyen 21</span><span class="pill">NRK1</span></div>
+  </section>
+</main>
+</body>
+</html>

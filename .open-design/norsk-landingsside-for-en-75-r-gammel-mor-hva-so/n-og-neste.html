@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mammas TV-side – Nå og neste</title>
+<style>
+  :root{--bg:#fbf6ea;--ink:#1d1a16;--muted:#5b534a;--accent:#9c2f1f;--card:#fff;--line:#d9cfba}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:24px/1.5 "Helvetica Neue",Arial,sans-serif}
+  main{max-width:820px;margin:0 auto;padding:32px 24px 64px}
+  .date{font-size:26px;color:var(--muted);margin:0}
+  h1{font:700 52px/1.1 Georgia,"Iowan Old Style",serif;margin:8px 0 28px}
+  .now{background:var(--card);border:4px solid var(--ink);border-radius:20px;padding:32px}
+  .tag{display:inline-block;background:var(--accent);color:#fff;font-weight:700;font-size:24px;padding:6px 18px;border-radius:999px}
+  .now .ch{font-size:30px;font-weight:700;margin:20px 0 0}
+  .now .title{font:700 64px/1.05 Georgia,serif;margin:6px 0 12px}
+  .now .time{font-size:30px;color:var(--muted);margin:0}
+  .now p.desc{margin:14px 0 0}
+  h2{font:700 38px/1.2 Georgia,serif;margin:48px 0 16px}
+  ul{list-style:none;margin:0;padding:0}
+  li{display:grid;grid-template-columns:120px 1fr;gap:16px;align-items:baseline;padding:20px 0;border-top:2px solid var(--line)}
+  li:last-child{border-bottom:2px solid var(--line)}
+  .t{font:700 40px Georgia,serif}
+  .n{font-weight:700;font-size:28px}
+  .c{display:block;color:var(--muted);font-size:24px}
+  .big{display:block;margin-top:48px;text-align:center;background:var(--ink);color:#fff;text-decoration:none;font-weight:700;font-size:32px;padding:28px;border-radius:20px}
+  .big:focus,.big:hover{outline:6px solid var(--accent)}
+  @media(max-width:600px){h1{font-size:40px}.now .title{font-size:46px}li{grid-template-columns:1fr;gap:0}}
+</style>
+</head>
+<body>
+<main>
+  <p class="date">Torsdag 29. oktober</p>
+  <h1>Hva går på TV?</h1>
+
+  <section class="now" data-od-id="naa">
+    <span class="tag">Går nå</span>
+    <p class="ch">NRK1 · kanal 1</p>
+    <p class="title">Norge Rundt</p>
+    <p class="time">Kl. 19.00 – 19.30</p>
+    <p class="desc">Reportasjer fra hele landet.</p>
+  </section>
+
+  <section data-od-id="senere">
+    <h2>Senere i kveld</h2>
+    <ul>
+      <li><span class="t">19.30</span><span><span class="n">Ukjent land</span><span class="c">NRK1</span></span></li>
+      <li><span class="t">20.00</span><span><span class="n">Sofa-kveld: Kriminalserien</span><span class="c">TV 2</span></span></li>
+      <li><span class="t">21.00</span><span><span class="n">Dagsrevyen 21</span><span class="c">NRK1</span></span></li>
+      <li><span class="t">21.45</span><span><span class="n">Dokumentar: Fjorden</span><span class="c">NRK2</span></span></li>
+    </ul>
+  </section>
+
+  <a class="big" href="#fjernkontroll" data-od-id="fjernkontroll">Slik bruker du fjernkontrollen</a>
+</main>
+</body>
+</html>

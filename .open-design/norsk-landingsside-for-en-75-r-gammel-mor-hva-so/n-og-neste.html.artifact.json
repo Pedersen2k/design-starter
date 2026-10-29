@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "kind": "html",
+  "title": "Nå og neste",
+  "entry": ".open-design/norsk-landingsside-for-en-75-r-gammel-mor-hva-so/n-og-neste.html",
+  "renderer": "html",
+  "status": "complete",
+  "exports": [
+    "html",
+    "standalone",
+    "site",
+    "png",
+    "jpeg",
+    "pdf"
+  ],
+  "createdAt": "2026-10-29T09:26:19.462Z",
+  "updatedAt": "2026-10-29T09:26:19.462Z",
+  "sourceSkillId": "od:prototype:web-prototype",
+  "explorationId": "norsk-landingsside-for-en-75-r-gammel-mor-hva-so",
+  "directionId": "n-og-neste"
+}
