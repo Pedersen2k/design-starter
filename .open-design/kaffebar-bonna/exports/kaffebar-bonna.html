@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bønna – kaffebar på Grünerløkka</title>
+<style>
+  :root {
+    --primary: #9b5b32;
+    --secondary: #E9E3DD;
+    --surface: #fffdf8;
+    --text: #201914;
+    --muted: #6b5d52;
+    --line: #e4dcd2;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
+    background: var(--surface);
+    color: var(--text);
+    line-height: 1.6;
+  }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+  section { padding: 96px 0; }
+
+  header.nav { position: sticky; top: 0; z-index: 10; background: rgba(255,253,248,.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+  .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .brand { font-weight: 700; font-size: 20px; letter-spacing: -.01em; }
+  .nav ul { display: flex; gap: 32px; list-style: none; font-size: 14px; color: var(--muted); }
+  .nav ul a:hover, .nav ul a:focus-visible { color: var(--primary); }
+
+  .btn { display: inline-block; padding: 14px 28px; border-radius: 999px; font-weight: 600; font-size: 15px; transition: background .2s, transform .2s; }
+  .btn-primary { background: var(--primary); color: var(--surface); }
+  .btn-primary:hover, .btn-primary:focus-visible { background: #834a26; transform: translateY(-1px); }
+  .btn:focus-visible, a:focus-visible { outline: 3px solid var(--primary); outline-offset: 3px; }
+
+  .hero { padding: 120px 0 96px; }
+  .hero .wrap { display: grid; grid-template-columns: 1.1fr .9fr; gap: 64px; align-items: center; }
+  .eyebrow { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: .14em; color: var(--primary); margin-bottom: 20px; }
+  h1 { font-size: clamp(40px, 6vw, 68px); line-height: 1.05; font-weight: 700; letter-spacing: -.03em; margin-bottom: 24px; }
+  .hero p.lead { font-size: 18px; color: var(--muted); max-width: 46ch; margin-bottom: 36px; }
+  .cup {
+    aspect-ratio: 1; border-radius: 50% 50% 46% 54% / 54% 46% 54% 46%;
+    background: radial-gradient(circle at 35% 30%, #c9915f 0%, var(--primary) 45%, #5e3519 100%);
+    display: grid; place-items: center; box-shadow: 0 40px 80px -30px rgba(94,53,25,.5);
+    position: relative;
+  }
+  .cup::after { content: ""; position: absolute; inset: 14%; border-radius: 50%; border: 2px solid rgba(255,253,248,.35); }
+  .cup span { font-size: clamp(72px, 12vw, 140px); font-weight: 700; color: var(--surface); letter-spacing: -.04em; }
+
+  h2 { font-size: clamp(30px, 4vw, 44px); line-height: 1.15; font-weight: 700; letter-spacing: -.02em; margin-bottom: 12px; }
+  .sub { color: var(--muted); max-width: 52ch; margin-bottom: 48px; }
+
+  .menu { background: var(--secondary); }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .item { background: var(--surface); border-radius: 20px; padding: 28px; border: 1px solid var(--line); transition: transform .2s, box-shadow .2s; }
+  .item:hover { transform: translateY(-3px); box-shadow: 0 16px 32px -20px rgba(32,25,20,.35); }
+  .item .row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 8px; }
+  .item h3 { font-size: 18px; font-weight: 600; }
+  .price { font-weight: 600; color: var(--primary); white-space: nowrap; }
+  .item p { font-size: 14px; color: var(--muted); }
+
+  .about .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .about p { color: var(--muted); margin-bottom: 16px; }
+  .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .stat { border-top: 2px solid var(--primary); padding-top: 14px; }
+  .stat b { display: block; font-size: 36px; letter-spacing: -.02em; }
+  .stat span { font-size: 14px; color: var(--muted); }
+
+  .visit { background: var(--text); color: var(--surface); }
+  .visit .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
+  .visit h2 { color: var(--surface); }
+  .visit .eyebrow { color: #e0b48e; }
+  .hours { list-style: none; max-width: 360px; }
+  .hours li { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid rgba(255,253,248,.15); }
+  .hours li span:last-child { color: #e0b48e; }
+  address { font-style: normal; font-size: 18px; margin-bottom: 24px; }
+  .visit p { color: rgba(255,253,248,.7); }
+
+  footer { padding: 32px 0; font-size: 13px; color: var(--muted); }
+  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+
+  @media (max-width: 920px) {
+    section { padding: 64px 0; }
+    .hero { padding: 64px 0; }
+    .hero .wrap, .about .wrap, .visit .wrap { grid-template-columns: 1fr; gap: 40px; }
+    .cup { max-width: 320px; }
+    .grid { grid-template-columns: 1fr 1fr; }
+    .nav ul { display: none; }
+  }
+  @media (max-width: 560px) {
+    .grid { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#">Bønna</a>
+    <nav><ul>
+      <li><a href="#meny">Meny</a></li>
+      <li><a href="#om-oss">Om oss</a></li>
+      <li><a href="#besok">Besøk oss</a></li>
+    </ul></nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" data-od-id="hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Kaffebar · Grünerløkka</p>
+        <h1>Bønna. Kaffe uten hastverk.</h1>
+        <p class="lead">Nybrent kaffe, nybakte kanelboller og en stol ved vinduet. Ta deg tid – vi har det ikke travelt.</p>
+        <a class="btn btn-primary" href="#meny">Se menyen</a>
+      </div>
+      <div class="cup" aria-hidden="true"><span>B</span></div>
+    </div>
+  </section>
+
+  <section class="menu" id="meny" data-od-id="meny">
+    <div class="wrap">
+      <p class="eyebrow">Menyen</p>
+      <h2>Det vi serverer hver dag</h2>
+      <p class="sub">Bønnene brennes i små partier, og bakverket kommer ferskt fra ovnen hver morgen.</p>
+      <div class="grid">
+        <article class="item"><div class="row"><h3>Espresso</h3><span class="price">38 kr</span></div><p>Dobbel shot med mørk sjokolade og nøtter i smaken.</p></article>
+        <article class="item"><div class="row"><h3>Cappuccino</h3><span class="price">52 kr</span></div><p>Silkeaktig melkeskum på en solid espresso.</p></article>
+        <article class="item"><div class="row"><h3>Filterkaffe</h3><span class="price">45 kr</span></div><p>Dagens bønne, brygget for hånd. Gratis påfyll.</p></article>
+        <article class="item"><div class="row"><h3>Chai latte</h3><span class="price">56 kr</span></div><p>Krydret te med dampet melk og et drag av kanel.</p></article>
+        <article class="item"><div class="row"><h3>Kanelbolle</h3><span class="price">42 kr</span></div><p>Bakt hver morgen. Ofte utsolgt før klokka tolv.</p></article>
+        <article class="item"><div class="row"><h3>Brunost-toast</h3><span class="price">64 kr</span></div><p>Surdeigsbrød, brunost og en dæsj tyttebærsyltetøy.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="om-oss" data-od-id="om-oss">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Om oss</p>
+        <h2>En liten kaffebar med store meninger om kaffe</h2>
+        <p>Bønna åpnet som et lite sted for naboer som ville ha bedre kaffe rett rundt hjørnet. Vi kjøper fra bønder vi kjenner, brenner selv og bakerer tidlig.</p>
+        <p>Her er det plass til både laptop og lange samtaler. Hunder er velkomne.</p>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>12</b><span>seter innendørs</span></div>
+        <div class="stat"><b>3</b><span>bønner på bar</span></div>
+        <div class="stat"><b>06:30</b><span>vi åpner tidlig</span></div>
+        <div class="stat"><b>100 %</b><span>nybrent lokalt</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="visit" id="besok" data-od-id="besok">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Besøk oss</p>
+        <h2>Kom innom</h2>
+        <address>Markveien 12<br>0554 Oslo<br>Grünerløkka</address>
+        <p>Fem minutter fra Birkelunden. Sykkelparkering rett utenfor døra.</p>
+      </div>
+      <div>
+        <h2 style="font-size:24px;margin-bottom:16px">Åpningstider</h2>
+        <ul class="hours">
+          <li><span>Mandag–fredag</span><span>06:30–18:00</span></li>
+          <li><span>Lørdag</span><span>08:00–18:00</span></li>
+          <li><span>Søndag</span><span>09:00–16:00</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Bønna kaffebar</span>
+    <span>Markveien 12, Oslo · hei@bonna.example</span>
+  </div>
+</footer>
+</body>
+</html>

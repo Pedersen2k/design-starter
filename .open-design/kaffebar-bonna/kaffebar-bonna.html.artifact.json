@@ -14,7 +14,25 @@
     "pdf"
   ],
   "createdAt": "2026-10-29T09:42:54.455Z",
-  "updatedAt": "2026-10-29T09:42:54.455Z",
+  "updatedAt": "2026-10-29T09:54:16.633Z",
   "sourceSkillId": "od:prototype:web-prototype",
-  "designSystemId": "cafe"
+  "designSystemId": "cafe",
+  "metadata": {
+    "exports": [
+      {
+        "path": ".open-design/kaffebar-bonna/exports/kaffebar-bonna.html",
+        "format": "standalone",
+        "bytes": 8954,
+        "exportedAt": "2026-10-29T09:54:11.771Z"
+      }
+    ],
+    "shares": [
+      {
+        "provider": "claude-artifact",
+        "url": "https://claude.ai/artifact/WvCeH99Ee34oqXaMhPJi3v",
+        "publishedAt": "2026-10-29T09:54:16.631Z",
+        "siteRef": "https://claude.ai/artifact/WvCeH99Ee34oqXaMhPJi3v"
+      }
+    ]
+  }
 }
