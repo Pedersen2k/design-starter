@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TV-guide – 5 forslag</title>
+<style>
+  :root {
+    --bg: #eceae5; --ink: #1b1b1f; --muted: #5a5a63; --card: #fff;
+    --accent: #0b5cad; --line: #d8d5ce;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif; line-height: 1.4; }
+  header.top { max-width: 1200px; margin: 0 auto; padding: 40px 20px 8px; }
+  header.top h1 { font-size: clamp(28px, 5vw, 44px); margin: 0 0 8px; }
+  header.top p { margin: 0; color: var(--muted); font-size: 18px; max-width: 70ch; }
+  .principles { max-width: 1200px; margin: 20px auto 0; padding: 0 20px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .principles span { background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; font-size: 15px; }
+  main { max-width: 1200px; margin: 0 auto; padding: 20px; display: grid; gap: 56px; }
+  .proposal { display: grid; grid-template-columns: minmax(0, 380px) minmax(0, 1fr); gap: 36px; align-items: start; }
+  @media (max-width: 820px) { .proposal { grid-template-columns: 1fr; } }
+  .proposal .num { font-size: 15px; font-weight: 700; color: var(--accent); letter-spacing: .08em; text-transform: uppercase; }
+  .proposal h2 { font-size: 30px; margin: 4px 0 10px; }
+  .proposal p { font-size: 18px; margin: 0 0 12px; }
+  .proposal ul { margin: 0; padding-left: 20px; font-size: 17px; color: var(--muted); }
+  .proposal li { margin-bottom: 6px; }
+  .pros { margin-top: 14px; font-size: 16px; background: #fff; border-left: 4px solid var(--accent); padding: 10px 14px; border-radius: 0 8px 8px 0; }
+
+  /* phone frame */
+  .phone { width: 100%; max-width: 380px; margin: 0 auto; border: 10px solid #222; border-radius: 38px; overflow: hidden; background: #000; box-shadow: 0 12px 30px rgba(0,0,0,.22); }
+  .screen { height: 680px; overflow: hidden; position: relative; display: flex; flex-direction: column; }
+  .status { display: flex; justify-content: space-between; padding: 8px 18px 4px; font-size: 14px; font-weight: 700; }
+
+  /* ---------- 1. Nå og Neste ---------- */
+  .p1 { background: #f7f5f0; color: #14213d; }
+  .p1 .hd { padding: 10px 18px 6px; }
+  .p1 .hd small { display: block; font-size: 18px; color: #4a5568; }
+  .p1 .hd b { font-size: 34px; }
+  .p1 .list { padding: 8px 14px; display: grid; gap: 12px; overflow: hidden; }
+  .p1 .ch { background: #fff; border-radius: 18px; padding: 14px 16px; border: 2px solid #d9d4c7; }
+  .p1 .ch .name { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 20px; }
+  .p1 .ch .badge { background: #14213d; color: #fff; border-radius: 8px; padding: 2px 10px; font-size: 18px; }
+  .p1 .ch .now { font-size: 26px; font-weight: 800; margin: 6px 0 8px; line-height: 1.15; }
+  .p1 .bar { height: 12px; border-radius: 8px; background: #e5e0d3; overflow: hidden; }
+  .p1 .bar i { display: block; height: 100%; background: #2a9d5c; }
+  .p1 .meta { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; font-size: 17px; margin-top: 6px; color: #4a5568; }
+  .p1 .tabs { margin-top: auto; display: grid; grid-template-columns: repeat(3, 1fr); background: #14213d; }
+  .p1 .tabs div { color: #fff; text-align: center; padding: 14px 4px; font-size: 18px; font-weight: 700; }
+  .p1 .tabs .on { background: #2a9d5c; }
+
+  /* ---------- 2. Kvelden ---------- */
+  .p2 { background: #fdf3e1; color: #3b2a1a; }
+  .p2 .hd { padding: 12px 18px 8px; }
+  .p2 .hd b { font-size: 36px; font-family: Georgia, "Times New Roman", serif; display: block; }
+  .p2 .hd span { font-size: 18px; }
+  .p2 .tl { padding: 6px 14px 0 14px; display: grid; gap: 0; position: relative; }
+  .p2 .row { display: grid; grid-template-columns: 74px 1fr; gap: 10px; padding: 10px 0; border-top: 2px dotted #d3b88a; }
+  .p2 .time { font-size: 30px; font-weight: 800; font-family: Georgia, serif; color: #a64b1e; }
+  .p2 .pick { background: #fff; border-radius: 14px; padding: 10px 12px; border: 2px solid #ecd9b4; }
+  .p2 .pick.now { border-color: #a64b1e; box-shadow: 0 0 0 3px #f3c9a5; }
+  .p2 .pick b { font-size: 21px; display: block; line-height: 1.2; }
+  .p2 .pick span { font-size: 16px; color: #7a6248; }
+  .p2 .pick em { font-style: normal; font-size: 14px; background: #a64b1e; color: #fff; padding: 1px 8px; border-radius: 6px; margin-left: 6px; }
+  .p2 .more { margin: auto 14px 14px; text-align: center; background: #a64b1e; color: #fff; padding: 14px; border-radius: 14px; font-size: 20px; font-weight: 800; }
+
+  /* ---------- 3. Plakat ---------- */
+  .p3 { background: #0f1115; color: #fff; }
+  .p3 .poster { margin: 8px 14px 0; border-radius: 24px; height: 410px; padding: 18px; display: flex; flex-direction: column; justify-content: flex-end; background: linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,.85)), linear-gradient(135deg, #7a1f3d, #1f3a8a 70%, #0b8f7a); position: relative; }
+  .p3 .poster .live { position: absolute; top: 16px; left: 16px; background: #e5383b; padding: 4px 14px; border-radius: 999px; font-weight: 800; font-size: 17px; letter-spacing: .06em; }
+  .p3 .poster .big { position: absolute; top: 14px; right: 18px; font-size: 60px; opacity: .9; }
+  .p3 .poster h3 { margin: 0; font-size: 34px; line-height: 1.1; }
+  .p3 .poster p { margin: 6px 0 0; font-size: 19px; color: #e5e7eb; }
+  .p3 .dots { display: flex; justify-content: center; gap: 8px; padding: 12px; }
+  .p3 .dots i { width: 12px; height: 12px; border-radius: 50%; background: #444; }
+  .p3 .dots i.on { background: #ffd23f; width: 32px; border-radius: 8px; }
+  .p3 .nav { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 0 14px 14px; margin-top: auto; }
+  .p3 .nav div { background: #ffd23f; color: #111; text-align: center; border-radius: 16px; padding: 16px; font-size: 22px; font-weight: 800; }
+  .p3 .nav div.alt { background: #262a33; color: #fff; }
+
+  /* ---------- 4. Fjernkontroll ---------- */
+  .p4 { background: #1d2a44; color: #fff; }
+  .p4 .hd { padding: 10px 18px 4px; font-size: 20px; }
+  .p4 .hd b { font-size: 28px; display: block; }
+  .p4 .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 8px 14px; }
+  .p4 .btn { border-radius: 20px; padding: 14px 8px; text-align: center; font-weight: 800; font-size: 22px; border: 3px solid transparent; }
+  .p4 .btn span { display: block; font-size: 34px; line-height: 1; margin-bottom: 4px; }
+  .p4 .b1 { background: #e63946; } .p4 .b2 { background: #2a9d8f; } .p4 .b3 { background: #f4a261; color: #111; } .p4 .b4 { background: #457b9d; }
+  .p4 .btn.sel { border-color: #fff; box-shadow: 0 0 0 4px rgba(255,255,255,.35); }
+  .p4 .answer { margin: auto 14px 14px; background: #fff; color: #111; border-radius: 22px; padding: 16px; }
+  .p4 .answer small { font-size: 17px; color: #555; }
+  .p4 .answer b { display: block; font-size: 30px; line-height: 1.1; margin: 4px 0 8px; }
+  .p4 .answer p { margin: 0; font-size: 20px; }
+  .p4 .answer .say { margin-top: 10px; background: #1d2a44; color: #fff; border-radius: 12px; text-align: center; padding: 10px; font-weight: 800; font-size: 19px; }
+
+  /* ---------- 5. Kategorier ---------- */
+  .p5 { background: #ffffff; color: #1b1b1f; }
+  .p5 .hd { padding: 10px 18px 4px; }
+  .p5 .hd b { font-size: 30px; }
+  .p5 .days { display: flex; gap: 8px; padding: 6px 14px; }
+  .p5 .days div { flex: 1; text-align: center; padding: 10px 2px; border-radius: 12px; background: #eef0f4; font-size: 17px; font-weight: 700; }
+  .p5 .days .on { background: #0b5cad; color: #fff; }
+  .p5 .cats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 8px 14px; }
+  .p5 .cat { border-radius: 18px; padding: 12px; font-weight: 800; font-size: 21px; min-height: 96px; display: flex; flex-direction: column; justify-content: space-between; }
+  .p5 .cat span { font-size: 34px; }
+  .p5 .cat small { font-weight: 600; font-size: 15px; opacity: .85; }
+  .p5 .c1 { background: #ffe3e0; color: #7a1d12; } .p5 .c2 { background: #dff3e4; color: #145a2a; }
+  .p5 .c3 { background: #e0ebff; color: #0f3d91; } .p5 .c4 { background: #fff1c9; color: #6b4e00; }
+  .p5 .c5 { background: #efe3ff; color: #4a1d91; } .p5 .c6 { background: #ffe8d1; color: #7a3a00; }
+  .p5 .size { margin-top: auto; display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: #f3f3f6; border-top: 2px solid #e1e1e6; font-size: 18px; font-weight: 700; }
+  .p5 .size b { font-size: 26px; border: 2px solid #1b1b1f; border-radius: 10px; padding: 0 12px; }
+
+  .note { max-width: 1200px; margin: 0 auto; padding: 0 20px 60px; }
+  .note h3 { font-size: 24px; margin: 0 0 8px; }
+  .note p { font-size: 18px; color: var(--muted); max-width: 75ch; margin: 0 0 8px; }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <h1>TV-guide for mor – 5 forslag</h1>
+  <p>Alle forslagene er laget for å være lette å bruke: stor tekst, høy kontrast, store trykkflater og få valg om gangen. Programmene under er <strong>eksempeldata</strong> – i den ferdige appen hentes de fra en ekte TV-guide.</p>
+</header>
+<div class="principles">
+  <span>Skrift 22 px eller større</span>
+  <span>Kontrast over 7:1</span>
+  <span>Knapper minst 60 px</span>
+  <span>Ingen skjulte menyer</span>
+  <span>Alltid «hva går nå?» først</span>
+</div>
+
+<main>
+
+  <!-- 1 -->
+  <section class="proposal">
+    <div class="phone"><div class="screen p1">
+      <div class="status"><span>19:42</span><span>●●●</span></div>
+      <div class="hd"><small>Torsdag kveld · Klokka er</small><b>19:42</b></div>
+      <div class="list">
+        <div class="ch"><div class="name"><span class="badge">1</span> NRK1</div><div class="now">Norge Rundt</div><div class="bar"><i style="width:70%"></i></div><div class="meta"><span>Startet 19:30</span><span>Neste: Kveldsnytt 20:00</span></div></div>
+        <div class="ch"><div class="name"><span class="badge">2</span> TV 2</div><div class="now">Kvelden vår – spillefilm</div><div class="bar"><i style="width:25%"></i></div><div class="meta"><span>Startet 19:35</span><span>Slutter 21:30</span></div></div>
+        <div class="ch"><div class="name"><span class="badge">3</span> NRK2</div><div class="now">Dokumentar: Fjordene</div><div class="bar"><i style="width:45%"></i></div><div class="meta"><span>Startet 19:20</span><span>Slutter 20:15</span></div></div>
+      </div>
+      <div class="tabs"><div class="on">Nå</div><div>I kveld</div><div>I morgen</div></div>
+    </div></div>
+    <div>
+      <div class="num">Forslag 1</div>
+      <h2>«Nå og Neste»</h2>
+      <p>Det mest direkte: ett stort kort per kanal som viser hva som går akkurat nå, hvor langt programmet har kommet og hva som kommer etterpå.</p>
+      <ul>
+        <li>Kanalnummeret matcher fjernkontrollen</li>
+        <li>Grønn fremdriftsstrek viser om det er verdt å skru på nå</li>
+        <li>Bare tre faner: Nå, I kveld, I morgen</li>
+        <li>Bare hennes favorittkanaler vises – resten skjules</li>
+      </ul>
+      <div class="pros"><strong>Best hvis</strong> mor vil ha det enklest mulig og mest bruker TV-en spontant.</div>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section class="proposal">
+    <div class="phone"><div class="screen p2">
+      <div class="status"><span>19:42</span><span>●●●</span></div>
+      <div class="hd"><b>I kveld</b><span>Torsdag 29. oktober</span></div>
+      <div class="tl">
+        <div class="row"><div class="time">19</div><div class="pick now"><b>Norge Rundt<em>PÅ NÅ</em></b><span>NRK1 · kanal 1</span></div></div>
+        <div class="row"><div class="time">20</div><div class="pick"><b>Kveldsnytt</b><span>NRK1 · kanal 1 · 20:00</span></div></div>
+        <div class="row"><div class="time">20</div><div class="pick"><b>Så mye bedre</b><span>TV 2 · kanal 2 · 20:30</span></div></div>
+        <div class="row"><div class="time">21</div><div class="pick"><b>Fra gamle dager</b><span>NRK2 · kanal 3 · 21:15</span></div></div>
+        <div class="row"><div class="time">22</div><div class="pick"><b>Sene nyheter</b><span>TV 2 · kanal 2 · 22:00</span></div></div>
+      </div>
+      <div class="more">Vis flere programmer</div>
+    </div></div>
+    <div>
+      <div class="num">Forslag 2</div>
+      <h2>«Kvelden» – tidslinje</h2>
+      <p>Som en papiravis: én anbefalt ting per time i kveld, sortert etter klokkeslett. Varm, rolig stil med serif-skrift som minner om TV-bladet.</p>
+      <ul>
+        <li>Klokkeslettet står stort til venstre, kanalnummer står under hvert program</li>
+        <li>«På nå» er markert med ramme</li>
+        <li>Mor trenger ikke velge kanal først – hun ser rett og slett hva som går når</li>
+        <li>Knappen nederst viser hele programmet ved behov</li>
+      </ul>
+      <div class="pros"><strong>Best hvis</strong> mor planlegger kvelden og liker en «avis»-følelse.</div>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section class="proposal">
+    <div class="phone"><div class="screen p3">
+      <div class="status"><span>19:42</span><span>●●●</span></div>
+      <div class="poster">
+        <div class="live">● PÅ NÅ</div>
+        <div class="big">📺</div>
+        <h3>Kvelden vår</h3>
+        <p>TV 2 · kanal 2 · Spillefilm<br>19:35 – 21:30</p>
+      </div>
+      <div class="dots"><i class="on"></i><i></i><i></i><i></i></div>
+      <div class="nav"><div class="alt">◀ Forrige</div><div>Neste ▶</div></div>
+    </div></div>
+    <div>
+      <div class="num">Forslag 3</div>
+      <h2>«Plakat» – ett program om gangen</h2>
+      <p>Hele skjermen viser ett program, som en filmplakat. Mor blar med to store knapper, eller sveiper, gjennom det som går akkurat nå.</p>
+      <ul>
+        <li>Aldri mer enn én ting å forholde seg til</li>
+        <li>Mørk bakgrunn med gul knapp – høyeste kontrast og skånsom om kvelden</li>
+        <li>Prikkene nederst viser hvor mange kanaler det er å bla gjennom</li>
+        <li>Plass til bilde fra programmet i ferdig versjon</li>
+      </ul>
+      <div class="pros"><strong>Best hvis</strong> mor blir overveldet av lister og heller vil «bla i et blad».</div>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section class="proposal">
+    <div class="phone"><div class="screen p4">
+      <div class="status"><span>19:42</span><span>●●●</span></div>
+      <div class="hd">Trykk på en kanal<b>Hva går på …</b></div>
+      <div class="grid">
+        <div class="btn b1 sel"><span>1</span>NRK1</div>
+        <div class="btn b2"><span>2</span>TV 2</div>
+        <div class="btn b3"><span>3</span>NRK2</div>
+        <div class="btn b4"><span>4</span>TVNorge</div>
+      </div>
+      <div class="answer">
+        <small>NRK1 · akkurat nå</small>
+        <b>Norge Rundt</b>
+        <p>Slutter 20:00. Deretter Kveldsnytt.</p>
+        <div class="say">🔊 Les høyt</div>
+      </div>
+    </div></div>
+    <div>
+      <div class="num">Forslag 4</div>
+      <h2>«Fjernkontrollen»</h2>
+      <p>Store, fargede kanalknapper med samme tall som på fjernkontrollen. Trykk på kanalen – svaret kommer i et stort hvitt felt under.</p>
+      <ul>
+        <li>Gjenkjennelig: ser ut som noe hun allerede kan bruke</li>
+        <li>Hver kanal har sin egen farge, så hun lærer dem raskt</li>
+        <li>«Les høyt»-knapp leser opp svaret (nyttig ved dårlig syn)</li>
+        <li>Kan utvides med knapp for «Ring meg» eller «Hjelp»</li>
+      </ul>
+      <div class="pros"><strong>Best hvis</strong> mor tenker «kanal først» og ikke liker nye mønstre.</div>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section class="proposal">
+    <div class="phone"><div class="screen p5">
+      <div class="status"><span>19:42</span><span>●●●</span></div>
+      <div class="hd"><b>Hva vil du se?</b></div>
+      <div class="days"><div class="on">I dag</div><div>I morgen</div><div>Lør</div><div>Søn</div></div>
+      <div class="cats">
+        <div class="cat c1"><span>📰</span>Nyheter<small>2 nå</small></div>
+        <div class="cat c2"><span>🎬</span>Film<small>3 i kveld</small></div>
+        <div class="cat c3"><span>🎶</span>Musikk<small>1 i kveld</small></div>
+        <div class="cat c4"><span>🌍</span>Dokumentar<small>4 i kveld</small></div>
+        <div class="cat c5"><span>🎭</span>Underholdning<small>5 i kveld</small></div>
+        <div class="cat c6"><span>⚽</span>Sport<small>2 nå</small></div>
+      </div>
+      <div class="size"><span>Tekststørrelse</span><b>A+</b></div>
+    </div></div>
+    <div>
+      <div class="num">Forslag 5</div>
+      <h2>«Hva vil du se?» – etter interesse</h2>
+      <p>I stedet for å tenke kanal, velger mor hva slags program hun har lyst på. Seks store fargefliser, og dagvalg øverst.</p>
+      <ul>
+        <li>Fargekoder og ikoner gjør valget raskt uten å lese mye</li>
+        <li>Hver flis viser hvor mange programmer som går – «2 nå»</li>
+        <li>Tekststørrelse kan økes direkte nederst</li>
+        <li>Kan huske hva hun ofte velger og vise det øverst</li>
+      </ul>
+      <div class="pros"><strong>Best hvis</strong> mor vil oppdage ting og ikke bare sjekke faste kanaler.</div>
+    </div>
+  </section>
+
+</main>
+
+<section class="note">
+  <h3>Min anbefaling</h3>
+  <p>Start med <strong>forslag 1 (Nå og Neste)</strong> som forside, og legg til <strong>«Les høyt»</strong> fra forslag 4 og <strong>tekststørrelse</strong> fra forslag 5. Da får hun svaret på det hun oftest lurer på – «hva går nå?» – uten å trykke på noe.</p>
+  <p>Si fra hvilke(t) du liker, og hvilke kanaler mor ser på, så bygger jeg en fungerende versjon med ekte programdata.</p>
+</section>
+
+</body>
+</html>
