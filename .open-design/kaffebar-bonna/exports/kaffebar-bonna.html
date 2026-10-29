@@ -41,14 +41,8 @@
   .eyebrow { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: .14em; color: var(--primary); margin-bottom: 20px; }
   h1 { font-size: clamp(40px, 6vw, 68px); line-height: 1.05; font-weight: 700; letter-spacing: -.03em; margin-bottom: 24px; }
   .hero p.lead { font-size: 18px; color: var(--muted); max-width: 46ch; margin-bottom: 36px; }
-  .cup {
-    aspect-ratio: 1; border-radius: 50% 50% 46% 54% / 54% 46% 54% 46%;
-    background: radial-gradient(circle at 35% 30%, #c9915f 0%, var(--primary) 45%, #5e3519 100%);
-    display: grid; place-items: center; box-shadow: 0 40px 80px -30px rgba(94,53,25,.5);
-    position: relative;
-  }
-  .cup::after { content: ""; position: absolute; inset: 14%; border-radius: 50%; border: 2px solid rgba(255,253,248,.35); }
-  .cup span { font-size: clamp(72px, 12vw, 140px); font-weight: 700; color: var(--surface); letter-spacing: -.04em; }
+  .bean { width: 100%; max-width: 460px; justify-self: center; filter: drop-shadow(0 40px 36px rgba(32,25,20,.38)); transform: rotate(-12deg); transition: transform .6s ease; }
+  .bean:hover { transform: rotate(-4deg) scale(1.03); }
 
   h2 { font-size: clamp(30px, 4vw, 44px); line-height: 1.15; font-weight: 700; letter-spacing: -.02em; margin-bottom: 12px; }
   .sub { color: var(--muted); max-width: 52ch; margin-bottom: 48px; }
@@ -86,7 +80,7 @@
     section { padding: 64px 0; }
     .hero { padding: 64px 0; }
     .hero .wrap, .about .wrap, .visit .wrap { grid-template-columns: 1fr; gap: 40px; }
-    .cup { max-width: 320px; }
+    .bean { max-width: 320px; justify-self: start; }
     .grid { grid-template-columns: 1fr 1fr; }
     .nav ul { display: none; }
   }
@@ -117,7 +111,40 @@
         <p class="lead">Nybrent kaffe, nybakte kanelboller og en stol ved vinduet. Ta deg tid – vi har det ikke travelt.</p>
         <a class="btn btn-primary" href="#meny">Se menyen</a>
       </div>
-      <div class="cup" aria-hidden="true"><span>B</span></div>
+      <svg class="bean" viewBox="0 0 400 400" role="img" aria-label="Kaffebønne">
+        <defs>
+          <radialGradient id="body" cx="36%" cy="28%" r="85%">
+            <stop offset="0" stop-color="#8a5636"/>
+            <stop offset=".35" stop-color="#5b3320"/>
+            <stop offset=".75" stop-color="#34190d"/>
+            <stop offset="1" stop-color="#1c0d06"/>
+          </radialGradient>
+          <linearGradient id="crease" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#0f0603"/>
+            <stop offset="1" stop-color="#2a140a"/>
+          </linearGradient>
+          <radialGradient id="sheen" cx="30%" cy="22%" r="40%">
+            <stop offset="0" stop-color="#ffffff" stop-opacity=".38"/>
+            <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+          </radialGradient>
+          <filter id="grain" x="0" y="0" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="7" result="n"/>
+            <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .22 0"/>
+            <feComposite in2="SourceGraphic" operator="in"/>
+          </filter>
+          <clipPath id="clip"><ellipse cx="200" cy="200" rx="138" ry="182"/></clipPath>
+        </defs>
+        <ellipse cx="200" cy="200" rx="138" ry="182" fill="url(#body)"/>
+        <g clip-path="url(#clip)">
+          <ellipse cx="200" cy="200" rx="138" ry="182" fill="#000" filter="url(#grain)"/>
+          <ellipse cx="200" cy="200" rx="138" ry="182" fill="url(#sheen)"/>
+          <ellipse cx="150" cy="95" rx="46" ry="22" fill="#fff" opacity=".16" transform="rotate(-28 150 95)"/>
+        </g>
+        <path d="M200 28 C 150 100, 252 150, 200 205 C 148 260, 252 305, 200 372" fill="none" stroke="#080302" stroke-width="22" stroke-linecap="round"/>
+        <path d="M200 28 C 150 100, 252 150, 200 205 C 148 260, 252 305, 200 372" fill="none" stroke="url(#crease)" stroke-width="14" stroke-linecap="round"/>
+        <path d="M209 34 C 163 102, 262 150, 211 205 C 160 260, 262 305, 209 366" fill="none" stroke="#a46c45" stroke-opacity=".5" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M191 40 C 140 104, 242 152, 189 206" fill="none" stroke="#000" stroke-opacity=".5" stroke-width="3" stroke-linecap="round"/>
+      </svg>
     </div>
   </section>
 
